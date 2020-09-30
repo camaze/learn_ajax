@@ -37,14 +37,17 @@ var server = http.createServer(function (request, response) {
     response.end()
   } else if (path === '/xxx') {
     response.statusCode = 200
-    response.setHeader('Content-Type', 'text/xml;charset=utf-8')
-    response.write(`<!--  Copyright w3school.com.cn -->
-    <note>
-    <to>George</to>
-    <from>John</from>
-    <heading>Reminder</heading>
-    <body>Don't forget the meeting!</body>
-    </note>`)
+    response.setHeader('Content-Type', 'text/JSON;charset=utf-8')
+    response.write(`
+    {
+      "note":{
+        "to":"蚊蚊",
+        "from":"黏黏",
+        "heading":"打招呼",
+        "content":"hello"
+      }
+    }
+`)
     response.end()
   } else {
     response.statusCode = 404
